@@ -1,5 +1,0 @@
-# ignore the image folder
-img/**
-
-# and the config file
-config.php
