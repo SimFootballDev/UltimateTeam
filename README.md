@@ -12,7 +12,9 @@ There will also be a demo database sql script probably, and a script to truncate
 
 You'll need PHP, and access to a MySQL database
 
-(if it's not on the same webhost as the interface, you will need to make sure you have remote database access allowed)
+NOTE: Your MySQL user needs CRUD permissions, and the ability to execute stored procedures
+
+(if the database is not on the same webhost as the interface, you will need to make sure you have remote database access allowed)
 
 Uhh... that's all I think.
 
