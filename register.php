@@ -99,7 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-	<?php include "./scripts.php"; ?>
+	<?php include "./snip/scripts.php"; ?>
 </head>
 <body>
 	<div id="main">

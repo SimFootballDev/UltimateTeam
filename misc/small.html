@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="400" height="600"></canvas> 
+	&nbsp; <canvas id="canvas2" width="200" height="300"></canvas>
+	&nbsp; <canvas id="canvas3" width="100" height="150"></canvas>
+    <script>
+		var c = document.getElementById('canvas');
+		var context = c.getContext('2d');
+		var card1 = new Image();
+		
+		var c2 = document.getElementById('canvas2');
+		var context2 = c2.getContext('2d');
+		var card2 = new Image();
+		
+		var c3 = document.getElementById('canvas3');
+		var context3 = c3.getContext('2d');
+		var card3 = new Image();
+
+		var sources = {
+			//frame: 'frame.png',
+			shape: 'shape.png'
+		};
+
+		card1.onload = function() {
+			console.log('frame loaded...');
+			DrawScreen();
+			DrawText();
+		};
+
+		card2.onload = function() {
+			console.log('frame2 loaded...');
+			DrawScreen2();
+			DrawText2();
+		};
+
+		card3.onload = function() {
+			console.log('frame3 loaded...');
+			DrawScreen3();
+			DrawText3();
+		};
+
+		card1.src = "frame.png";
+		card2.src = "frame.png";
+		card3.src = "frame.png";
+
+		function DrawScreen() {
+
+			context.drawImage(card1, 0, 0);
+
+			loadImages(sources, function(images) {
+				context.drawImage(images.shape,1,1);
+				console.log('shape loaded...');
+			});
+		}
+
+		function DrawText() {
+
+			let x = canvas.width - 10;
+			let y = canvas.height - 10;
+
+			context.font = '6pt Verdana';
+			context.fillStyle = '#FFFFFF';
+			context.textBaseline = "bottom";
+			context.textAlign = "right";
+			context.fillText('ID: 100 000 001',x,y);
+			console.log('text added...');
+
+		}
+
+		function DrawScreen2() {
+
+			context2.scale(0.5,0.5);
+			context2.drawImage(card2, 0, 0);
+
+			loadImages(sources, function(images) {
+				context2.drawImage(images.shape,1,1);
+				console.log('shape2 loaded...');
+			});
+		}
+
+		function DrawText2() {
+
+			let x = canvas2.width - 10;
+			let y = canvas2.height - 10;
+
+			context2.font = '12pt Verdana';
+			context2.fillStyle = '#FFFFFF';
+			context2.textBaseline = "bottom";
+			context2.textAlign = "right";
+			context2.fillText('ID: 999 999 999',x,y,180);
+			console.log('text2 added...');
+
+		}
+
+		function DrawScreen3() {
+
+			context3.scale(0.25,0.25);
+			context3.drawImage(card3, 0, 0);
+
+			loadImages(sources, function(images) {
+				context3.drawImage(images.shape,1,1);
+				console.log('shape3 loaded...');
+			});
+
+		}
+
+		function DrawText3() {
+
+			let x = canvas3.width - 1;
+			let y = canvas3.height - 1;
+
+			context3.font = '24pt Verdana';
+			context3.fillStyle = '#FFFFFF';
+			context3.textBaseline = "bottom";
+			context3.textAlign = "center";
+			context3.fillText('ID: 012 345 678',x,y,80);
+			console.log('text3 added...');
+
+		}
+
+		function loadImages(sources, callback) {
+
+			var images = {};
+			var loadedImages = 0;
+			var numImages = 0;
+
+			for(var src in sources) {
+				numImages++;
+			}
+
+			for(var src in sources) {
+				images[src] = new Image();
+				images[src].onload = function() {
+					if(++loadedImages >= numImages) {
+						callback(images);
+					}
+				};
+				images[src].src = sources[src];
+			}
+		}
+
+    </script>
+
+  </body>
+
+</html>      

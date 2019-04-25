@@ -14,7 +14,7 @@ body {
 }  
 
 a {  
-	color: #000;  
+	color: #284163;  
 }  
 
 a:hover, a:active, a:visited {  
@@ -79,6 +79,17 @@ a.admin {
 	font-size: 14px;
 	text-align: center;
 	padding: 5px; 
+}
+
+a.toggle {
+	border-radius: 5px;
+	border-color: #FFFFFF;
+	background-color: #000000;
+	color: #FFFFFF;
+	font-size: 14px;
+	text-align: center;
+	padding: 5px; 
+	float: right;
 }
 
 a.return {

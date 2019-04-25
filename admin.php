@@ -1,7 +1,7 @@
 <?php
 
-include "config.php";
-include "user.php";
+require_once "./config.php";
+require_once "./snip/user.php";
 
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -78,11 +78,11 @@ if(!$forbidden) {
 <head>
     <meta charset="UTF-8">
     <title>Admin Control Panel</title>
-	<?php include "./scripts.php"; ?>
+	<?php include "./snip/scripts.php"; ?>
 </head>
 <body>
 	<div id="main">
-		<?php include "./menu.php"; ?>
+		<?php include "./snip/menu.php"; ?>
 		<div class="page-header">
 			<?php echo $msg ?></b>.
 			<a href="dashboard.php" class="return" style="float: right;">Dashboard</a>
@@ -94,6 +94,12 @@ if(!$forbidden) {
 		     * verify trades
             * issue temporary bans 
          -->
+		<?php
+		if ($_SESSION['id']==1) {
+			include "./snip/admin/gen.php";
+			echo "<br /><br />";
+		}
+		?>
 		<?php
 		if (!$forbidden) {
 			echo '<p>The admin buttons below will work properly when I figure out the forms and queries and stuff.<br /> <font style="text-align: right">- 37thchamber</font></p>';

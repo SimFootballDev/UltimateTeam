@@ -10,7 +10,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
  
 // Include config file
-require_once "config.php";
+require_once "./config.php";
  
 // Define variables and initialize with empty values
 $new_password = $confirm_password = "";
@@ -76,11 +76,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Reset Password</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-	<link rel="stylesheet" href="style.css">
+	<?php include "./snip/scripts.php"; ?>
 </head>
 <body>
 	<div id="main">
+		<?php include "./snip/menu.php"; ?>
 		<div class="wrapper">
 			<h2>Reset Password</h2>
 			<p>Please fill out this form to reset your password.</p>

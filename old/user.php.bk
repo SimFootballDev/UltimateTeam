@@ -1,0 +1,58 @@
+<?php
+
+include "config.php";
+
+/*
+// initialise variables
+$acctID_u = 0;
+$acctCash_u = 0;
+$acctUpdated_u = 0;
+*/
+
+// Check connection
+if (mysqli_connect_errno($link)) {
+
+    echo "Failed to connect to Database: " . mysqli_connect_error();
+
+} else {
+	
+	// get account info for this user
+	$sql = "SELECT a.accountID, l.userID, a.lastUpdate, l.username 
+	        FROM accounts a 
+			INNER JOIN logins l ON l.userID = a.userID 
+			WHERE l.username='" . $_SESSION["username"] . "'";
+			
+	//echo "Query: " . $sql;
+	$result = mysqli_query($link,$sql);
+		
+	if (!is_null($result)) {
+		$acctRows = mysqli_num_rows($result);
+	} else {
+		$acctRows = 0;
+	}
+			
+	if ($acctRows > 0) {
+	
+		// pass query result to array
+		$acctInfo = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		
+		// store the info for later
+		$SESSION['acctID'] = $acctInfo['accountID'];
+		$_SESSION['acctCash'] = $acctInfo['acctBalance'];
+		$_SESSION['acctUpdated'] = $acctInfo['lastUpdate'];
+		
+		$acctID = $acctInfo['accountID'];
+		$acctCash = $acctInfo['acctBalance'];
+		$acctUpdated = $acctInfo['lastUpdate'];
+		
+		
+	} else {
+		
+		// could not find this user's account
+		$SESSION['acctID'] = 0;
+		
+	}
+	
+}
+
+?>

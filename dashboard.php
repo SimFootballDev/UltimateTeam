@@ -3,8 +3,8 @@
 // Initialize the session
 //session_start();
 
-include "config.php"; 
-include "user.php";
+require_once "./config.php";
+require_once "../snip/user.php";
 
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -57,11 +57,11 @@ if ($acctRows == 0 || is_null($acctRows)) {
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
-	<?php include "./scripts.php"; ?>
+	<?php include "./snip/scripts.php"; ?>
 </head>
 <body>
 	<div id="main">
-		<?php include "./menu.php"; ?>
+		<?php include "./snip/menu.php"; ?>
 		<div class="page-header">
 			<div id="greeting">
 				Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>.
@@ -81,6 +81,7 @@ if ($acctRows == 0 || is_null($acctRows)) {
 			
 		?>
 		<p>
+			<a href="settings.php?style=<?php if($_SESSION["style"] == "dark") { echo 'light'; } else { echo 'dark'; } ?>" class="toggle">Toggle Skin</a>
 			<a href="reset.php" class="btn btn-warning">Reset Your Password</a>
 			<a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
 		</p>

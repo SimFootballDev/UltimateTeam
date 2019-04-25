@@ -1,0 +1,165 @@
+@font-face {
+	font-family: mainText;
+	src: url('http://sim-football.com/fonts/MaddenName.ttf') format('truetype');
+	}
+
+* {  
+	margin: 0;  
+	padding: 0;  
+}  
+
+body {  
+	font-family: mainText;  
+	font-size: 16px;
+	color: #FFFFFF;
+	background: #000000;
+}  
+
+
+section, wrapper {
+	background-color: #000000;
+}
+
+a {  
+	color: #FFFFFF;  
+}  
+
+a:hover, a:active, a:visited {  
+	text-decoration: none;  
+}  
+
+.page-header {
+	font-size: 16px;
+}
+
+#header-row {
+	background-color: #000000;
+	color: #FFFFFF;
+	font-size: 14px;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+}
+
+#header-row ul {
+  list-style-type: none;
+  margin: 10px;
+  padding: 5px;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+#header-row li {
+  float: right;
+  display: block;
+  text-align: center;
+  padding: 5px;
+}
+
+#header-row li a {
+  text-decoration: none;
+}
+
+#main {  
+	width: 80%;  
+	margin: 0 auto;  
+	margin-top: 10px; 
+	padding: 10px;  
+	border: 1px solid #CCC;  
+	background-color: #000000;  
+}  
+	  
+#greeting {
+	font-size: 16px;
+	background-color: #000000;
+}
+
+a.logout {
+	border-radius: 5px;
+	background-color: #CC1D1D;
+	color: #FFFFFF;
+	font-size: 14px;
+	text-align: center;
+	padding: 5px; 
+}
+
+a.admin {
+	border-radius: 5px;
+	background-color: #228B22;
+	color: #FFFFFF;
+	font-size: 14px;
+	text-align: center;
+	padding: 5px; 
+}
+
+a.toggle {
+	border-radius: 5px;
+	border-color: #000000;
+	background-color: #FFFFFF;
+	color: #000000;
+	font-size: 14px;
+	text-align: center;
+	padding: 5px; 
+	float: right;
+}
+
+a.return {
+	border-radius: 5px;
+	border: 1px solid #000000;
+	font-size: 14px;
+	text-align: center;
+	padding: 5px; 
+	margin-bottom: 5px;
+}
+
+form fieldset { border: 0; }  
+
+form fieldset p br { clear: left; }  
+
+label {  
+	margin-top: 5px;  
+	display: block;  
+	width: 100px;  
+	padding: 0;  
+	float: left;  
+}  
+
+input {  
+	font-family: Trebuchet MS;  
+	border: 1px solid #CCC;  
+	margin-bottom: 5px;  
+	background-color: #CCC;  
+	padding: 2px;  
+}  
+
+input:hover {  
+	border: 1px solid #222;  
+	background-color: #EEE;  
+}  
+
+.tg {
+	border-collapse:collapse;
+	border-spacing:0;
+	margin:0px auto;
+	text-align:center;
+}
+
+.tg td{
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-weight:normal;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:1px;
+	overflow:hidden;
+	word-break:normal;
+}
+
+.tg-desc{
+	text-align:left;
+}
+
+.tg-buttons{
+	text-align:center;
+	border-style:none;
+	border-width:0px;
+}

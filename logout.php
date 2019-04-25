@@ -1,3 +1,4 @@
+
 <?php
 
 // Initialize the session

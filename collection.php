@@ -3,8 +3,8 @@
 // Initialize the session
 //session_start();
 
-include "config.php";
-include "user.php";
+require_once "./config.php";
+require_once "./snip/user.php";
  
 // initialise variables
 global $acctID;
@@ -114,6 +114,14 @@ if (mysqli_connect_errno($link)) {
 	
 }
 
+debug_to_console('Style: ' . $_SESSION['style']);
+$tableClass = "table table-hover table-striped table-bordered";
+if ($_SESSION['style']=='dark') {
+	$tableClass . ' table-dark'; 
+	} 
+
+debug_to_console($tableClass);
+
 ?>
  
 <!DOCTYPE html>
@@ -121,7 +129,7 @@ if (mysqli_connect_errno($link)) {
 <head>
     <meta charset="UTF-8">
     <title>Your Collection</title>
-	<?php include "./scripts.php"; ?>
+	<?php include "./snip/scripts.php"; ?>
 	<script type="text/javascript" class="init">
 		$(document).ready(function() {
 			$('#collection').DataTable( {
@@ -134,7 +142,7 @@ if (mysqli_connect_errno($link)) {
 </head>
 <body>
 	<div id="main">
-		<?php include "./menu.php"; ?>
+		<?php include "./snip/menu.php"; ?>
 		<div class="page-header">
 			Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>.
 			<a href="dashboard.php" class="return" style="float: right;">Dashboard</a>
@@ -144,7 +152,7 @@ if (mysqli_connect_errno($link)) {
 			<?php echo $announce ?>
 			<br /><br />
 			<div class="table-responsive">
-				<table id="collection" class="table table-striped table-bordered">
+				<table id="collection" class=<?php echo $tableClass ?>>
 					<thead>
 						<tr>
 							<th>Count</th>
