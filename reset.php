@@ -76,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Reset Password</title>
-	<?php include "./snip/scripts.php"; ?>
+	<?php include "./scripts.php"; ?>
 </head>
 <body>
 	<div id="main">

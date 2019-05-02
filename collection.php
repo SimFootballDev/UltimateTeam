@@ -4,7 +4,7 @@
 //session_start();
 
 require_once "./config.php";
-require_once "./snip/user.php";
+require_once $snipPath . "user.php";
  
 // initialise variables
 global $acctID;
@@ -114,14 +114,15 @@ if (mysqli_connect_errno($link)) {
 	
 }
 
-debug_to_console('Style: ' . $_SESSION['style']);
+//debug_to_console('Style: ' . $_SESSION['style']);
 $tableClass = "table table-hover table-striped table-bordered";
 if ($_SESSION['style']=='dark') {
 	$tableClass . ' table-dark'; 
 	} 
 
-debug_to_console($tableClass);
+//debug_to_console($tableClass);
 
+//debug_to_console($snipPath . "scripts.php");
 ?>
  
 <!DOCTYPE html>
@@ -129,7 +130,7 @@ debug_to_console($tableClass);
 <head>
     <meta charset="UTF-8">
     <title>Your Collection</title>
-	<?php include "./snip/scripts.php"; ?>
+	<?php include $appRoot . "scripts.php"; ?>
 	<script type="text/javascript" class="init">
 		$(document).ready(function() {
 			$('#collection').DataTable( {
@@ -142,7 +143,7 @@ debug_to_console($tableClass);
 </head>
 <body>
 	<div id="main">
-		<?php include "./snip/menu.php"; ?>
+		<?php include $snipPath . "menu.php"; ?>
 		<div class="page-header">
 			Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>.
 			<a href="dashboard.php" class="return" style="float: right;">Dashboard</a>

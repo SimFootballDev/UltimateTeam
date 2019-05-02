@@ -1,6 +1,6 @@
 <?php
 
-require_once "../config.php";
+require_once $appRoot . "config.php";
 
 $txThisWeek = 0;
 $hasStarter = 0;
@@ -19,7 +19,7 @@ if (mysqli_connect_errno($link)) {
 	
 	$listOfSets = array();
 	while($row = mysqli_fetch_assoc($result)) {
-		$listOfSets[$row['cardSet']] = $row['cardSetDesc'];
+		array_push($listOfSets,$row['cardSet']);
 	}
 	
 	debug_to_console('List of card sets available to buy:');
@@ -29,10 +29,8 @@ if (mysqli_connect_errno($link)) {
 
 	// get valid redemption code list
 	// exclude 'BASE' otherwise players can get the starter deck for free
-	$sql = "SELECT DISTINCT redemptionCode 
-	        FROM playerAttributes 
-			WHERE redemptionCode<>'BASE'";
-	
+	$sql = "SELECT DISTINCT redemptionCode FROM playerAttributes WHERE redemptionCode<>'BASE'";
+		
 	$result = mysqli_query($link,$sql);
 	
 	$validCodes = array();
@@ -46,10 +44,10 @@ if (mysqli_connect_errno($link)) {
 //---------------------------------------------------------
 
 	// get all past redeemed codes for this account
-	$sql = "SELECT DISTINCT redemptionCode 
-	        FROM transactions 
-			WHERE accountID =" . $_SESSION['acctID'] . ";";
+	$sql = "SELECT DISTINCT redemptionCode FROM transactions WHERE redemptionCode IS NOT NULL AND accountID =" . $_SESSION['acctID'] . ";";
 			
+	debug_to_console($sql);
+	
 	$result = mysqli_query($link,$sql);
 	$pastRedeems = array();
 	while($row = mysqli_fetch_assoc($result)) {

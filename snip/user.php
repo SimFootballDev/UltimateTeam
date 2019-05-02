@@ -1,6 +1,6 @@
 <?php
 
-require_once "../config.php";
+require_once $appRoot . "config.php";
 
 // initialise variables
 $acctID = 0;

@@ -78,7 +78,7 @@ if(!$forbidden) {
 <head>
     <meta charset="UTF-8">
     <title>Admin Control Panel</title>
-	<?php include "./snip/scripts.php"; ?>
+	<?php include "./scripts.php"; ?>
 </head>
 <body>
 	<div id="main">

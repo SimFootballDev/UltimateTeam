@@ -104,11 +104,12 @@ a.toggle {
 
 a.return {
 	border-radius: 5px;
-	border: 1px solid #000000;
+	border: 1px solid #FFFFFF;
 	font-size: 14px;
 	text-align: center;
 	padding: 5px; 
 	margin-bottom: 5px;
+	display: inline-block;
 }
 
 form fieldset { border: 0; }  
@@ -135,6 +136,10 @@ input:hover {
 	border: 1px solid #222;  
 	background-color: #EEE;  
 }  
+
+input.form-control-plaintext {
+	color: #000000;
+}
 
 .tg {
 	border-collapse:collapse;

@@ -4,7 +4,7 @@
 //session_start();
 
 require_once "./config.php";
-require_once "../snip/user.php";
+require_once $appRoot . "/snip/user.php";
 
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -26,11 +26,11 @@ if (!is_null($result)) {
 
 if ($acctRows == 0 || is_null($acctRows)) {
 	
-	$sql = "INSERT INTO `accounts` (`userID`, `acctBalance` ) VALUES (" . $_SESSION["id"] . "," . 25 . ")";
+	$sql = "INSERT INTO `accounts` (`userID`, `acctBalance` ) VALUES (" . $_SESSION["id"] . "," . $sCoin . ")";
 	
 	if (mysqli_query($link, $sql)) {
 		
-		$status = "Account successfully created!\n\nYou have been awarded 25 coins as a starting gift.";
+		$status = "Account successfully created!\n\nYou have been awarded " . $sCoin . " coins as a starting gift.";
 		
 	} else {
 	
@@ -57,11 +57,11 @@ if ($acctRows == 0 || is_null($acctRows)) {
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
-	<?php include "./snip/scripts.php"; ?>
+	<?php include "./scripts.php"; ?>
 </head>
 <body>
 	<div id="main">
-		<?php include "./snip/menu.php"; ?>
+		<?php include $snipPath . "menu.php"; ?>
 		<div class="page-header">
 			<div id="greeting">
 				Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>.

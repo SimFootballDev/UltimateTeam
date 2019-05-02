@@ -15,7 +15,7 @@ if(isset($_GET["style"]) && isset($_SESSION["loggedin"]) && $_SESSION["loggedin"
 	if (in_array($_GET['style'], $styleList)) {
 		
 		// update the user table
-		$sql = "UPDATE logins SET style='" . $_GET['style'] . "';";
+		$sql = "UPDATE logins SET style='" . $_GET['style'] . "' WHERE userID = " . $_SESSION['id'] . ";";
 
 		debug_to_console("Updating style preference...");
 		debug_to_console($sql);
@@ -29,8 +29,6 @@ if(isset($_GET["style"]) && isset($_SESSION["loggedin"]) && $_SESSION["loggedin"
 	}
 	
 }
-
-
 
 // return to the dashboard
 header("location: dashboard.php");
