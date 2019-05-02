@@ -51,6 +51,18 @@ if($link === false){
 	mysqli_query($link, "SET NAMES UTF8");
 }
 
+// main web app folder name
+// e.g. if the web address is www.mysite.com/myapp, set this to "myapp"
+$appFolder = "ut2";
+
+// starting coins
+$sCoin = 25;
+
+// defines paths required elsewhere in the app
+$appRoot = $_SERVER['DOCUMENT_ROOT'] . "/" . $appFolder . "/";
+$snipPath = $appRoot . "snip/";
+$imgPath = $appRoot . "img/";
+
 ?>
 ```
 
