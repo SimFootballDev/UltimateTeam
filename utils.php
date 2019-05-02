@@ -1,5 +1,17 @@
 <?php 
 
+// console debug function so i dont have to keep testing outputs on pages
+function debug_to_console($data) {
+    
+	$output = $data;
+    
+	if ( is_array( $output ) )
+        $output = implode( ',', $output);
+
+    echo "<script>console.log('" . $output . "');</script>";
+}
+
+// needed for pack generation
 // https://w-shadow.com/blog/2008/12/10/fast-weighted-random-choice-in-php/
 
 /*
